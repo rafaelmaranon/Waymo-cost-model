@@ -335,17 +335,22 @@ const App: React.FC = () => {
     <div className="min-h-screen lg:h-screen bg-white p-4 overflow-visible lg:overflow-hidden">
       <div className="max-w-6xl mx-auto h-full flex flex-col">
         {/* Header */}
-        <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between mb-4">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">
-              Robotaxi Cost Model
-            </h1>
-            <p className="text-gray-600 text-sm mb-1" style={{ opacity: 0.7 }}>
-              Unit economics simulator for robotaxi fleets
-            </p>
+        <div className="mb-4">
+          {/* Row 1: Title with tooltip */}
+          <div className="mb-2">
+            <div className="relative inline-block group">
+              <h1 className="text-2xl font-bold text-gray-900">
+                Robotaxi Cost Model
+              </h1>
+              {/* Tooltip - desktop only */}
+              <div className="absolute left-0 top-full mt-1 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap hidden lg:block">
+                Unit economics simulator for robotaxi fleets
+              </div>
+            </div>
           </div>
           
-          <div className="flex flex-wrap items-center gap-2 justify-start lg:justify-end">
+          {/* Row 2: Controls */}
+          <div className="flex flex-wrap items-center gap-4">
             <select
               onChange={(e) => handlePresetSelect(e.target.value)}
               className="px-3 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -358,25 +363,18 @@ const App: React.FC = () => {
             </select>
             
             <div className="flex items-center gap-2">
-              <span className="mr-2 rounded-full bg-gradient-to-r from-emerald-400 to-blue-500 px-2 py-0.5 text-xs font-semibold text-white">
+              <span className="rounded-full bg-gradient-to-r from-emerald-400 to-blue-500 px-2 py-0.5 text-xs font-semibold text-white">
                 NEW
               </span>
               <a
                 href="https://autonomy-scale-roi.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium hover:underline"
+                className="text-blue-600 hover:text-blue-700 font-medium hover:underline"
               >
                 Autonomy Scale ROI →
               </a>
             </div>
-            
-            <button
-              onClick={() => setShowDisclaimer(true)}
-              className="text-blue-600 hover:text-blue-800 text-sm focus:outline-none"
-            >
-              ⓘ Disclaimer
-            </button>
           </div>
         </div>
         
@@ -551,6 +549,27 @@ const App: React.FC = () => {
                     />
                   </div>
                 </div>
+              </div>
+            </div>
+            
+            {/* MORE section */}
+            <div className="mt-6 pt-4 border-t border-gray-200">
+              <h3 className="text-xs text-gray-400 uppercase tracking-wide mb-2">MORE</h3>
+              <div className="space-y-2">
+                <a
+                  href="https://github.com/rafaelmaranon/robotaxi-cost-model"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-sm text-gray-600 hover:underline"
+                >
+                  GitHub
+                </a>
+                <button
+                  onClick={() => setShowDisclaimer(true)}
+                  className="block text-sm text-gray-600 hover:underline text-left"
+                >
+                  Disclaimer
+                </button>
               </div>
             </div>
           </div>
