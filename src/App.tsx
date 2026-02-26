@@ -350,10 +350,10 @@ const App: React.FC = () => {
           </div>
           
           {/* Row 2: Controls */}
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex items-center gap-4 flex-wrap sm:flex-nowrap">
             <select
               onChange={(e) => handlePresetSelect(e.target.value)}
-              className="px-3 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="shrink-0 px-3 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               defaultValue=""
             >
               <option value="" disabled>Presets</option>
@@ -370,7 +370,7 @@ const App: React.FC = () => {
                 href="https://autonomy-scale-roi.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-700 font-medium hover:underline"
+                className="text-blue-600 hover:text-blue-700 font-medium hover:underline whitespace-nowrap"
               >
                 Autonomy Scale ROI →
               </a>
